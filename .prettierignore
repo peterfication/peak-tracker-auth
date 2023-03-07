@@ -1,0 +1,4 @@
+db/schema.rb
+/.bundle/
+/vendor/bundle
+/lib/bundler/man/
