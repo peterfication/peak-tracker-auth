@@ -1,3 +1,4 @@
+activerecord
 authlogic
 autofocus
 behaviour
@@ -34,6 +35,7 @@ mswin
 myapp
 mypass
 myuser
+nonclustered
 omni
 omniauth
 omniauthable
@@ -59,8 +61,10 @@ somedatabase
 sparkpost
 srand
 stylesheet
+superapp
 tailwindcss
 tempfiles
 timeoutable
+unconfigured
 validatable
 zoneinfo
