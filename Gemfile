@@ -28,6 +28,7 @@ gem "stimulus-rails"
 gem "tailwindcss-rails"
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
+gem "haml-rails", "~> 2.0"
 gem "jbuilder"
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
