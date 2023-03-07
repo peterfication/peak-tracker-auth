@@ -25,6 +25,22 @@ format:
 lint:
   bundle exec rubocop
 
+# SSH into the container on fly.io
+ssh:
+  fly ssh console
+
+# Open up a Rails console on fly.io
+ssh-console:
+  fly ssh console --command "rails/bin/rails console"
+
+# Proxy the PostgreSQL database via fly.io
+ssh-proxy-db:
+  fly proxy 5433:5432 -a peak-tracker-auth-db
+
+# Connect to the Redis instance via fly.io
+ssh-redis-proxy:
+  fly redis connect
+
 # Start the Rails server
 start:
   bundle exec rails server
