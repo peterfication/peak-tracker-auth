@@ -8,11 +8,15 @@ Procfile
 Rubocop
 SIGINT
 Sendfile
+behaviour
+behaviours
 bootsnap
 chdir
 checkin
 createuser
 datetime
+fcontext
+fdescribe
 fileutils
 fullscreen
 haml
@@ -35,6 +39,7 @@ sassc
 sendfile
 sharedapp
 somedatabase
+srand
 stylesheet
 tailwindcss
 tempfiles
