@@ -89,6 +89,8 @@ GEM
     crass (1.0.6)
     date (3.3.3)
     debug (1.7.1)
+      irb (>= 1.5.0)
+      reline (>= 0.3.1)
     diff-lcs (1.5.0)
     dockerfile-rails (1.2.5)
       rails
@@ -105,6 +107,9 @@ GEM
     importmap-rails (1.1.5)
       actionpack (>= 6.0.0)
       railties (>= 6.0.0)
+    io-console (0.6.0)
+    irb (1.6.3)
+      reline (>= 0.3.0)
     jaro_winkler (1.5.4)
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
@@ -194,6 +199,8 @@ GEM
     redis-client (0.13.0)
       connection_pool
     regexp_parser (2.7.0)
+    reline (0.3.2)
+      io-console (~> 0.5)
     reverse_markdown (2.1.1)
       nokogiri
     rexml (3.2.5)

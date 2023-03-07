@@ -1,0 +1,16 @@
+{
+  "name": "peak-tracker-auth",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:peterfication/peak-tracker-auth.git",
+  "author": "Peter Gundel <mail@petergundel.de>",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "spellcheck": "cspell **",
+    "spellcheck:list": "cspell ** --words-only --unique --no-progress"
+  },
+  "devDependencies": {
+    "cspell": "^6.28.0"
+  }
+}

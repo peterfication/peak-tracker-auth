@@ -1,4 +1,5 @@
-db/schema.rb
-/.bundle/
+/.bundle
+/db/schema.rb
+/lib/bundler/man
+/node_modules
 /vendor/bundle
-/lib/bundler/man/

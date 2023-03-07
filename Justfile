@@ -7,7 +7,7 @@ console:
   bundle exec rails console
 
 # Run all steps from CI
-ci: format lint test
+ci: spellcheck format lint test
 
 # Create and migrate the development database
 db-setup:
@@ -24,6 +24,14 @@ format:
 # Lint the Ruby files with Rubocop
 lint:
   bundle exec rubocop
+
+# Run the spellcheck
+spellcheck:
+  yarn spellcheck
+
+# List words that are unknown to the spellchecker
+spellcheck-list:
+  yarn spellcheck-list
 
 # SSH into the container on fly.io
 ssh:
