@@ -1,0 +1,16 @@
+require:
+ - rubocop-capybara
+ - rubocop-performance
+ - rubocop-rails
+ - rubocop-rake
+ - rubocop-rspec
+
+AllCops:
+  NewCops: enable
+  Exclude:
+    - db/schema.rb
+    - tmp/**/*
+    - vendor/**/*
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
