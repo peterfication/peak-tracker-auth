@@ -31,7 +31,7 @@ spellcheck:
 
 # List words that are unknown to the spellchecker
 spellcheck-list:
-  yarn spellcheck-list
+  yarn spellcheck:list
 
 # SSH into the container on fly.io
 ssh:
@@ -55,4 +55,4 @@ start:
 
 # Run the tests
 test:
-  bundle exec rails test
+  bundle exec rspec
