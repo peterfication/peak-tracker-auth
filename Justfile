@@ -51,7 +51,8 @@ ssh-redis-proxy:
 
 # Start the Rails server
 start:
-  bundle exec rails server
+  # This bin script is needed for Tailwind
+  bin/dev
 
 # Run the tests
 test:
