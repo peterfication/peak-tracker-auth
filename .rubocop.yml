@@ -16,7 +16,8 @@ Style/Documentation:
   Exclude:
     - app/controllers/**/*
     - test/**/*
-
+Style/EmptyMethod:
+  Enabled: false
 Style/FrozenStringLiteralComment:
   Enabled: false
 Style/StringLiterals:
