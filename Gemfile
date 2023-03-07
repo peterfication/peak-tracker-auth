@@ -49,6 +49,8 @@ gem "bootsnap", require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
+gem "devise"
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[mri mingw x64_mingw]
@@ -76,6 +78,10 @@ group :development do
   gem "rubocop-rspec", require: false
   gem "solargraph", require: false
   gem "solargraph-rails", require: false
+
+  # Command to convert all erb to haml files:
+  # find . -name \*.html.erb -print | sed 'p;s/.html.erb$/.html.haml/' | xargs -n2 html2haml
+  gem "html2haml", require: false
 end
 
 group :test do
