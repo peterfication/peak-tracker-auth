@@ -12,6 +12,11 @@ AllCops:
     - tmp/**/*
     - vendor/**/*
 
+Style/Documentation:
+  Exclude:
+    - app/controllers/**/*
+    - test/**/*
+
 Style/FrozenStringLiteralComment:
   Enabled: false
 Style/StringLiterals:
