@@ -66,6 +66,7 @@ group :development do
   # gem "spring"
 
   gem "dockerfile-rails", ">= 1.2", require: false
+  gem "foreman", require: false
   gem "prettier", require: false
   gem "rubocop", require: false
   gem "rubocop-capybara", require: false

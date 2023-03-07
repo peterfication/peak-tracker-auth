@@ -96,6 +96,7 @@ GEM
       rails
     e2mmap (0.1.0)
     erubi (1.12.0)
+    foreman (0.87.2)
     globalid (1.1.0)
       activesupport (>= 5.0)
     haml (6.1.1)
@@ -342,6 +343,7 @@ DEPENDENCIES
   capybara
   debug
   dockerfile-rails (>= 1.2)
+  foreman
   haml-rails (~> 2.0)
   importmap-rails
   jbuilder
