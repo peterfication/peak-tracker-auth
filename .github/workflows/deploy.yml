@@ -14,6 +14,12 @@ jobs:
     environment: main
     steps:
       - uses: actions/checkout@v3
+      - name: Create credentials file and remove it from .gitignore
+        env:
+          CREDENTIALS_BASE64: ${{ secrets.CREDENTIALS_BASE64 }}
+        run: |
+          echo $CREDENTIALS_BASE64 | base64 -d > config/credentials.yml.enc
+          sed -i '/config\/credentials.yml.enc/d' .gitignore
       - uses: superfly/flyctl-actions/setup-flyctl@master
       - run: flyctl deploy --remote-only
         env:
