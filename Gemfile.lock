@@ -114,6 +114,8 @@ GEM
     factory_bot_rails (6.2.0)
       factory_bot (~> 6.2.0)
       railties (>= 5.0.0)
+    faker (3.1.1)
+      i18n (>= 1.8.11, < 2)
     foreman (0.87.2)
     globalid (1.1.0)
       activesupport (>= 5.0)
@@ -386,6 +388,7 @@ DEPENDENCIES
   devise
   dockerfile-rails (>= 1.2)
   factory_bot_rails
+  faker
   foreman
   haml-rails (~> 2.0)
   html2haml
