@@ -9,6 +9,14 @@ console:
 # Run all steps from CI
 ci: spellcheck format lint test
 
+# Edit the Rails credentials
+credentials-edit:
+  rails credentials:edit
+
+# Get a base64 version of the encrypted credentials for CI
+credentials-base64:
+  cat config/credentials.yml.enc | base64 | pbcopy
+
 # Create and migrate the development database
 db-setup:
   bundle exec rails db:setup

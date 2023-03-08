@@ -39,6 +39,7 @@ omniauth
 omniauthable
 passthru
 passw
+pbcopy
 peterfication
 pgcrypto
 pidfile
