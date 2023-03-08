@@ -41,6 +41,10 @@ spellcheck:
 spellcheck-list:
   yarn spellcheck:list
 
+# Install the yard docs needed for Solargraph to work better
+solargraph-setup:
+  yard gems
+
 # SSH into the container on fly.io
 ssh:
   fly ssh console
