@@ -8,6 +8,6 @@
       "path": "./.cspell.dictionary.txt"
     }
   ],
-  "ignorePaths": ["config/credentials.yml.enc", "log", "node_modules", "tmp"],
+  "ignorePaths": ["config/credentials.yml.enc", "coverage", "log", "node_modules", "tmp"],
   "words": []
 }

@@ -41,6 +41,10 @@ spellcheck:
 spellcheck-list:
   yarn spellcheck:list
 
+# Install the yard docs needed for Solargraph to work better
+solargraph-setup:
+  yard gems
+
 # SSH into the container on fly.io
 ssh:
   fly ssh console
@@ -48,6 +52,10 @@ ssh:
 # Open up a Rails console on fly.io
 ssh-console:
   fly ssh console --command "rails/bin/rails console"
+
+# Stream the logs from fly.io
+ssh-logs:
+  fly logs
 
 # Proxy the PostgreSQL database via fly.io
 ssh-proxy-db:

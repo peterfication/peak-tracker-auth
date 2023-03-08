@@ -54,7 +54,9 @@ sassc
 sendfile
 sharedapp
 sigint
+solargraph
 somedatabase
+sparkpost
 srand
 stylesheet
 tailwindcss
