@@ -93,5 +93,6 @@ group :test do
   gem "capybara"
   gem "faker"
   gem "selenium-webdriver"
+  gem "simplecov", require: false
   gem "webdrivers"
 end

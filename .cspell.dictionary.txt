@@ -54,6 +54,7 @@ sassc
 sendfile
 sharedapp
 sigint
+solargraph
 somedatabase
 srand
 stylesheet
