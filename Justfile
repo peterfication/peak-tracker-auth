@@ -53,6 +53,10 @@ ssh:
 ssh-console:
   fly ssh console --command "rails/bin/rails console"
 
+# Stream the logs from fly.io
+ssh-logs:
+  fly logs
+
 # Proxy the PostgreSQL database via fly.io
 ssh-proxy-db:
   fly proxy 5433:5432 -a peak-tracker-auth-db
