@@ -1,3 +1,12 @@
+GIT
+  remote: https://github.com/peterfication/sparkpost_rails.git
+  revision: 44ba0cafef98171468ae1faadcc878d1a3fff5ee
+  branch: rails7
+  specs:
+    sparkpost_rails (1.5.5)
+      actionmailer (>= 4.0, < 8.0)
+      railties (>= 4.0, < 8.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -419,6 +428,7 @@ DEPENDENCIES
   simplecov
   solargraph
   solargraph-rails
+  sparkpost_rails!
   sprockets-rails
   stimulus-rails
   tailwindcss-rails
