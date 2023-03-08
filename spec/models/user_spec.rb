@@ -1,5 +1,3 @@
-require "rails_helper"
-
 RSpec.describe User do
   describe "#current_sign_in_ip" do
     it "is accessible" do

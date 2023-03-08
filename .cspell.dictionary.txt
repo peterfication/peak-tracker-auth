@@ -4,6 +4,7 @@ behaviour
 behaviours
 bootsnap
 bson
+byebug
 chdir
 checkin
 cpath
@@ -12,15 +13,18 @@ csvg
 datetime
 encryptable
 encryptor
+exitstatus
 fcontext
 fdescribe
 fileutils
+fullpath
 fullscreen
 gundel
 haml
 hotwire
 hotwire's
 hotwired
+hstore
 importmap
 keyfile
 kredis

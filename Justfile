@@ -56,4 +56,5 @@ start:
 
 # Run the tests
 test:
+  bundle exec rake factory_bot:lint
   bundle exec rspec

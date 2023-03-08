@@ -19,6 +19,8 @@ Metrics/MethodLength:
   Exclude:
     - db/**/*
 
+RSpec/MultipleExpectations:
+  Enabled: false
 RSpec/NamedSubject:
   Enabled: false
 

@@ -90,5 +90,7 @@ jobs:
           bundle exec rails db:schema:load
       - name: Precompile the assets for the request specs
         run: bundle exec rake assets:precompile
+      - name: Lint the test factories
+        run: bundle exec rake factory_bot:lint
       - name: Run RSpec
         run: bundle exec rspec
