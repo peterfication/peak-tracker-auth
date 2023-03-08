@@ -49,9 +49,14 @@ gem "bootsnap", require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
+gem "devise"
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[mri mingw x64_mingw]
+  gem "factory_bot_rails"
+  gem "pry-byebug"
+  gem "pry-rails"
   gem "rspec-rails", "~> 6.0.0"
 end
 
@@ -65,6 +70,7 @@ group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 
+  gem "annotate"
   gem "dockerfile-rails", ">= 1.2", require: false
   gem "foreman", require: false
   gem "prettier", require: false
@@ -76,11 +82,16 @@ group :development do
   gem "rubocop-rspec", require: false
   gem "solargraph", require: false
   gem "solargraph-rails", require: false
+
+  # Command to convert all erb to haml files:
+  # find . -name \*.html.erb -print | sed 'p;s/.html.erb$/.html.haml/' | xargs -n2 html2haml
+  gem "html2haml", require: false
 end
 
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
+  gem "faker"
   gem "selenium-webdriver"
   gem "webdrivers"
 end
