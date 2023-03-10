@@ -3,10 +3,13 @@ Rails.application.routes.draw do
 
   devise_for(:users, path: :auth, controllers: { sessions: "users/sessions" })
   use_doorkeeper do
-    # TODO: Skip not needed controllers
-    #
-    # it accepts :authorizations, :tokens, :token_info, :applications and :authorized_applications
-    # skip_controllers :tokens, :applications, :token_info
+    skip_controllers(
+      :applications, # No admin panel needed
+      # :authorizations,
+      :authorized_applications, # This server is for Peak Tracker only so no need to manage authorized applications
+      # :tokens,
+      # :token_info,
+    )
   end
   use_doorkeeper_openid_connect
 
