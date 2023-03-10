@@ -1,3 +1,4 @@
+activerecord
 authlogic
 autofocus
 behaviour
@@ -26,6 +27,7 @@ hotwire's
 hotwired
 hstore
 importmap
+justfile
 keyfile
 kredis
 libpq
@@ -34,6 +36,7 @@ mswin
 myapp
 mypass
 myuser
+nonclustered
 omni
 omniauth
 omniauthable
@@ -47,6 +50,7 @@ pidfile
 pids
 plpgsql
 procfile
+railtie
 rbprettier
 reconfirmable
 rubocop
@@ -59,8 +63,10 @@ somedatabase
 sparkpost
 srand
 stylesheet
+superapp
 tailwindcss
 tempfiles
 timeoutable
+unconfigured
 validatable
 zoneinfo

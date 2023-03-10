@@ -50,6 +50,8 @@ gem "bootsnap", require: false
 # gem "image_processing", "~> 1.2"
 
 gem "devise"
+gem "doorkeeper"
+gem "doorkeeper-openid_connect"
 
 gem "sparkpost_rails", github: "peterfication/sparkpost_rails", branch: "rails7"
 

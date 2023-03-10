@@ -1,24 +1,28 @@
-# README
+# Peak Tracker Auth
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Identity provider for [Peak Tracker](https://github.com/peterfication/peak_tracker_backend)
 
-Things you may want to cover:
+It's built with [Ruby on Rails](https://rubyonrails.org/), [Devise](https://github.com/heartcombo/devise) and [Doorkeeper](https://github.com/doorkeeper-gem/doorkeeper).
 
-- Ruby version
+## Useful commands
 
-- System dependencies
+Commands are defined in the [`Justfile`](Justfile) and can be listed with [`just`](https://github.com/casey/just).
 
-- Configuration
+## Getting started
 
-- Database creation
+Peak Tracker Auth expects a PostgreSQL database and a Redis server to be accessible.
 
-- Database initialization
+```console
+# Make sure you have the required Ruby version installed
+ruby -v
+-> ruby 3.2.1 ...
 
-- How to run the test suite
+# Install the dependencies
+bundle
 
-- Services (job queues, cache servers, search engines, etc.)
+# Setup the database
+bundle exec rails db:setup
 
-- Deployment instructions
-
-- ...
+# Start the server
+just start
+```

@@ -3,6 +3,7 @@
 # Table name: users
 #
 #  id                     :uuid             not null, primary key
+#  admin                  :boolean          default(FALSE)
 #  confirmation_sent_at   :datetime
 #  confirmation_token     :string
 #  confirmed_at           :datetime
@@ -47,4 +48,20 @@ class User < ApplicationRecord
   # Set up attributes so Devise trackable does not complain
   # that we don't have these fields in the database.
   attr_accessor :current_sign_in_ip, :last_sign_in_ip
+
+  # rubocop:disable Rails/InverseOf
+  has_many(
+    :access_grants,
+    class_name: "Doorkeeper::AccessGrant",
+    foreign_key: :resource_owner_id,
+    dependent: :delete_all,
+  )
+
+  has_many(
+    :access_tokens,
+    class_name: "Doorkeeper::AccessToken",
+    foreign_key: :resource_owner_id,
+    dependent: :delete_all,
+  )
+  # rubocop:enable Rails/InverseOf
 end
