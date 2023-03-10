@@ -45,6 +45,10 @@ class User < ApplicationRecord
     :validatable,
   )
 
+  def send_devise_notification(notification, *args)
+    devise_mailer.send(notification, self, *args).deliver_later
+  end
+
   # Set up attributes so Devise trackable does not complain
   # that we don't have these fields in the database.
   attr_accessor :current_sign_in_ip, :last_sign_in_ip

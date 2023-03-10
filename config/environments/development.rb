@@ -34,11 +34,15 @@ Rails.application.configure do
   # Store uploaded files on the local file system (see config/storage.yml for options).
   # config.active_storage.service = :local
 
+  config.active_job.queue_adapter = :sidekiq
+  config.active_job.queue_name_prefix = "peak_tracker_auth_development"
+
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
 
   config.action_mailer.perform_caching = false
   config.action_mailer.default_url_options = { host: "localhost", port: 3000 }
+  config.action_mailer.delivery_method = :log # See LogDeliveryMethod at the end of this file
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -67,3 +71,25 @@ Rails.application.configure do
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
 end
+
+##
+# Custom delivery method for Action Mailer for development to log the
+# email to the console.
+#
+# Needed for Sidekiq.
+class LogDeliveryMethod
+  def initialize(options = {})
+    @options = options
+  end
+
+  def deliver!(mail)
+    Rails.logger.info("Sending mail from #{mail.from} to #{mail.to}")
+    Rails.logger.info("Subject: #{mail.subject}")
+    Rails.logger.info("Body:")
+    Rails.logger.info(mail.body)
+    # message.encoded
+  end
+end
+
+# Registering the custom delivery method to Action Mailer.
+ActionMailer::Base.add_delivery_method :log, LogDeliveryMethod

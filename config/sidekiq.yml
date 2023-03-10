@@ -1,0 +1,4 @@
+# This config is just for development. For production see config/puma.rb
+:concurrency: 2
+:queues:
+  - peak_tracker_auth_development_default
