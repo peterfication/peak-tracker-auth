@@ -1,6 +1,6 @@
 ##
 # No doc
 class ApplicationMailer < ActionMailer::Base
-  default from: "from@example.com"
+  default from: Rails.application.credentials.devise&.sender&.email
   layout "mailer"
 end

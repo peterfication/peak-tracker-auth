@@ -41,3 +41,9 @@ pidfile ENV.fetch("PIDFILE") { "tmp/pids/server.pid" }
 
 # Allow puma to be restarted by `bin/rails restart` command.
 plugin :tmp_restart
+
+# rubocop:disable Rails/Output
+puts ""
+puts "  Preview emails at http://localhost:3000/rails/mailers"
+puts ""
+# rubocop:enable Rails/Output
