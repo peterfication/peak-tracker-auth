@@ -1,7 +1,58 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
+Rails.logger = Logger.new($stdout)
+
+def log(message)
+  Rails.logger.info message
+end
+
+log ""
+log "Seeding database..."
+
+log ""
+log "> Seeding Doorkeeper applications..."
+[
+  {
+    name: "Peak Tracker Web",
+    slug: "peak-tracker-web",
+    redirect_uri: "http://localhost:4000/auth/user/peak_tracker_auth/callback",
+    scopes: "openid email",
+    confidential: true,
+    uid: "local-abc-123",
+    secret: "local-secret-abc-123",
+  },
+].each do |attrs|
+  log "--> Seeding Doorkeeper application with slug #{attrs[:slug]}"
+  Doorkeeper::Application.find_or_initialize_by(slug: attrs[:slug]).update!(attrs)
+  log "--> Doorkeeper application with slug #{attrs[:slug]} seeded."
+end
+log "> Doorkeeper applications seeded."
+log ""
+
+log ""
+if User.count.zero?
+  log "> Seeding users..."
+  [
+    {
+      email: "mail@example.com",
+      password: "example123",
+      password_confirmation: "example123",
+      confirmed_at: Time.zone.now,
+    },
+    {
+      email: "admin@example.com",
+      password: "example123",
+      password_confirmation: "example123",
+      confirmed_at: Time.zone.now,
+      admin: true,
+    },
+  ].each do |attrs|
+    log "--> Seeding user with email #{attrs[:email]}"
+    User.find_or_initialize_by(email: attrs[:email]).update!(attrs)
+    log "--> User with email #{attrs[:slug]} seeded."
+  end
+  log "> Users seeded."
+else
+  log "> There is at least one user already. Skip seeding users..."
+end
+log ""
+
+log "Database seeded."
