@@ -27,6 +27,7 @@ hotwire's
 hotwired
 hstore
 importmap
+justfile
 keyfile
 kredis
 libpq
@@ -49,6 +50,7 @@ pidfile
 pids
 plpgsql
 procfile
+railtie
 rbprettier
 reconfirmable
 rubocop
