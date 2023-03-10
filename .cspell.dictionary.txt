@@ -57,6 +57,7 @@ rubocop
 sassc
 sendfile
 sharedapp
+sidekiq
 sigint
 solargraph
 somedatabase
