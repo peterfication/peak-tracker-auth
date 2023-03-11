@@ -6,5 +6,6 @@ if ENV.fetch("REDIS_URL", nil).present?
     :redis_store,
     servers: ["#{ENV.fetch("REDIS_URL")}/3/sessions"],
     key: "_peak_tracker_auth_session",
+    secure: Rails.env.production?,
   )
 end
