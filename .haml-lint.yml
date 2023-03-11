@@ -1,0 +1,9 @@
+linters:
+  LineLength:
+    # Prettier does not work for line length
+    enabled: false
+  SpaceInsideHashAttributes:
+    style: no_space
+  UnnecessaryStringOutput:
+    # Prettier does it differently
+    enabled: false

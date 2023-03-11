@@ -1,18 +1,14 @@
 %header
   %h2.text-2xl.font-bold.mb-8.text-center
     Peak Tracker
-
 = form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f|
   %main.flex.flex-col
     .mb-4
-      = render "devise/shared/error_messages", resource: resource
+      = render "devise/shared/error_messages", resource:
     .mb-4
       = f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email)
-
   %footer
     .mb-4
       = f.submit "Resend confirmation instructions"
-
-    %hr.mb-8.mt-8
-
+    %hr.mb-8.mt-8/
     = render "users/shared/links"

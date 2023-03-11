@@ -27,10 +27,17 @@ db-reset:
 
 # Format the files with Prettier
 format:
-  bundle exec rbprettier --write '**/*.{rb,yml,json,js,md,graphql}'
+  bundle exec rbprettier --write '**/*.{rb,yml,json,js,md,graphql,haml}'
+
+# Lint the Ruby files with Rubocop and HAML lint
+lint: lint-rubocop lint-haml
+
+# Lint the Ruby files with HAML lint
+lint-haml:
+  bundle exec haml-lint app/**/*.haml
 
 # Lint the Ruby files with Rubocop
-lint:
+lint-rubocop:
   bundle exec rubocop
 
 # Run the spellcheck

@@ -41,6 +41,8 @@ jobs:
           bundler-cache: true
       - name: Run Rubocop
         run: bundle exec rubocop
+      - name: Run HAML lint
+        run: bundle exec haml-lint app/**/*.haml
 
   format:
     needs: [before]
@@ -51,7 +53,7 @@ jobs:
         with:
           bundler-cache: true
       - name: Run Prettier
-        run: bundle exec rbprettier --check '**/*.{rb,yml,json,js,md,graphql}'
+        run: bundle exec rbprettier --check '**/*.{rb,yml,json,js,md,graphql,haml}'
 
   test:
     needs: [before]
