@@ -23,6 +23,8 @@ Metrics/BlockLength:
     - config/**/*
     - db/**/*
 
+RSpec/ExampleLength:
+  Max: 10
 RSpec/MultipleExpectations:
   Enabled: false
 RSpec/NamedSubject:

@@ -66,6 +66,7 @@ srand
 stylesheet
 superapp
 tailwindcss
+tailwindified
 tempfiles
 timeoutable
 unconfigured
