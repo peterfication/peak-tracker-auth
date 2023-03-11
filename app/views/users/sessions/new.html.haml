@@ -1,32 +1,27 @@
 %header
   %h2.text-2xl.font-bold.mb-8.text-center
     Peak Tracker
-
 = form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: false }) do |f|
   %main.flex.flex-col
     .mb-4
       = f.email_field :email, autofocus: true
     .mb-4
-      = f.password_field :password, autocomplete: 'current-password'
-
+      = f.password_field :password, autocomplete: "current-password"
     .flex
       - if devise_mapping.rememberable?
         .mb-4
           = f.check_box :remember_me, class: "cursor-pointer"
           = f.label :remember_me, class: "cursor-pointer"
-      - if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations'
+      - if devise_mapping.recoverable? && controller_name != "passwords" && controller_name != "registrations"
         .mb-4.text-right.grow
-          = link_to t('devise.sessions.new.forgot_password'), new_password_path(resource_name), class: 'text-sm text-gray-500 hover:text-gray-900'
-
+          = link_to t("devise.sessions.new.forgot_password"), new_password_path(resource_name), class: "text-sm text-gray-500 hover:text-gray-900"
   %footer
     .mb-4
       = f.submit "Log in"
-
     - if devise_mapping.omniauthable?
-      %hr.mb-8.mt-8
+      %hr.mb-8.mt-8/
       .mb-4
         - resource_class.omniauth_providers.each do |provider|
           = button_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), data: { turbo: false }
-
-    %hr.mb-8.mt-8
+    %hr.mb-8.mt-8/
     = render "users/shared/links"

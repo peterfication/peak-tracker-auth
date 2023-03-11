@@ -2,6 +2,6 @@
   %section{class: "w-full sm:w-1/2 lg:w-1/3 bg-gray-50 rounded-xl m-auto"}
     %nav{class: "bg-white rounded shadow px-4 pt-5 pb-4 sm:p-6 sm:pb-4"}
       - link_style = "mr-4 font-medium text-gray-500 hover:text-gray-900"
-      = link_to t('menu.dashboard'), dashboard_path, class: link_style
-      = link_to t('menu.profile'), edit_user_registration_path, class: link_style
-      = link_to t('menu.logout'), destroy_user_session_path, class: link_style, method: :delete, data: { turbo_method: :delete }
+      = link_to t("menu.dashboard"), dashboard_path, class: link_style
+      = link_to t("menu.profile"), edit_user_registration_path, class: link_style
+      = link_to t("menu.logout"), destroy_user_session_path, class: link_style, method: :delete, data: { turbo_method: :delete }

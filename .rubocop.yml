@@ -15,14 +15,14 @@ AllCops:
 Metrics/AbcSize:
   Exclude:
     - db/**/*
+Metrics/BlockLength:
+  Exclude:
+    - config/**/*
+    - db/**/*
 Metrics/ClassLength:
   Max: 200
 Metrics/MethodLength:
   Exclude:
-    - db/**/*
-Metrics/BlockLength:
-  Exclude:
-    - config/**/*
     - db/**/*
 
 RSpec/ExampleLength:
