@@ -1,3 +1,4 @@
+actionpack
 activerecord
 authlogic
 autofocus
