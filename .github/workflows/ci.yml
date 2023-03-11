@@ -70,15 +70,15 @@ jobs:
           --health-retries 5
         ports:
           - 5432:5432
-      # redis:
-      #   image: redis
-      #   ports:
-      #     - 6379:6379
+      redis:
+        image: redis
+        ports:
+          - 6379:6379
     env:
       POSTGRES_DB: peak-tracker-auth_test
       POSTGRES_PASSWORD: postgres
       DATABASE_URL: postgres://postgres:postgres@localhost:5432/peak-tracker-auth_test
-      # REDIS_URL: redis://localhost:6379/0
+      REDIS_URL: redis://localhost:6379/0
       RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
       RAILS_ENV: test
     steps:
