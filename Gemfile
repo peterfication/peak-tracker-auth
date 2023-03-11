@@ -11,10 +11,10 @@ gem "sprockets-rails"
 
 gem "pg", "~> 1.1"
 gem "puma", "~> 6.0"
+# gem "rack-cache" # Did not work
 gem "redis", "< 5" # > 5 is needed for redis-actionpack and redis-activesupport
 gem "redis-actionpack"
 gem "redis-activesupport"
-gem "rack-cache"
 gem "sidekiq"
 
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
