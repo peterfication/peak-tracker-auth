@@ -1,10 +1,15 @@
 RSpec.describe "Pages" do
   describe "GET /" do
     context "when the user is not signed in" do
-      it "renders the root page" do
+      it "redirects to sign in form" do
         get root_path
-        expect(response).to have_http_status(:ok)
-        expect(response.request.fullpath).to eq("/")
+        expect(response).to redirect_to(new_user_session_path)
+
+        follow_redirect!
+
+        expect(response.body.to_s).not_to include(
+          "You need to sign in or sign up before continuing.",
+        )
       end
     end
 

@@ -3,6 +3,7 @@ class PagesController < ApplicationController
   before_action :redirect_if_authenticated_user!, only: [:root]
 
   def root
+    redirect_to new_user_session_path
   end
 
   def dashboard

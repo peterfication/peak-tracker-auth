@@ -15,6 +15,8 @@ AllCops:
 Metrics/AbcSize:
   Exclude:
     - db/**/*
+Metrics/ClassLength:
+  Max: 200
 Metrics/MethodLength:
   Exclude:
     - db/**/*
@@ -23,6 +25,8 @@ Metrics/BlockLength:
     - config/**/*
     - db/**/*
 
+RSpec/ExampleLength:
+  Max: 10
 RSpec/MultipleExpectations:
   Enabled: false
 RSpec/NamedSubject:
