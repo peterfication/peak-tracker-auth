@@ -47,6 +47,8 @@ Style/StringLiterals:
   EnforcedStyle: double_quotes
 Style/SymbolProc:
   Enabled: false
+Style/StringLiteralsInInterpolation:
+  Enabled: false
 Style/TrailingCommaInArguments:
   EnforcedStyleForMultiline: comma
 Style/TrailingCommaInArrayLiteral:
