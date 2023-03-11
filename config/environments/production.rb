@@ -39,10 +39,16 @@ Rails.application.configure do
   # config.action_dispatch.x_sendfile_header = "X-Sendfile" # for Apache
   # config.action_dispatch.x_sendfile_header = "X-Accel-Redirect" # for NGINX
 
-  config.action_dispatch.rack_cache = {
-    metastore: "#{ENV.fetch("REDIS_URL")}/2/metastore",
-    entitystore: "#{ENV.fetch("REDIS_URL")}/2/entitystore",
-  }
+  if ENV.fetch("REDIS_URL", nil).present?
+    config.cache_store =
+      :redis_cache_store,
+      { url: "#{ENV.fetch("REDIS_URL")}/1/cache", expires_in: 90.minutes }
+
+    config.action_dispatch.rack_cache = {
+      metastore: "#{ENV.fetch("REDIS_URL")}/2/metastore",
+      entitystore: "#{ENV.fetch("REDIS_URL")}/2/entitystore",
+    }
+  end
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
   # config.active_storage.service = :local
@@ -61,11 +67,6 @@ Rails.application.configure do
 
   # Prepend all log lines with the following tags.
   config.log_tags = [:request_id]
-
-  # Use a different cache store in production.
-  config.cache_store =
-    :redis_cache_store,
-    { url: "#{ENV.fetch("REDIS_URL")}/1/cache", expires_in: 90.minutes }
 
   # Use a real queuing backend for Active Job (and separate queues per environment).
   config.active_job.queue_adapter = :sidekiq
