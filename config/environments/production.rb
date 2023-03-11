@@ -1,6 +1,8 @@
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
+  config.x.peak_tracker_web_url = ENV.fetch("PEAK_TRACKER_WEB_URL", "https://peak-tracker.com")
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
