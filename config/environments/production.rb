@@ -42,11 +42,11 @@ Rails.application.configure do
   if ENV.fetch("REDIS_URL", nil).present?
     config.cache_store =
       :redis_cache_store,
-      { url: "#{ENV.fetch("REDIS_URL")}/1/cache", expires_in: 90.minutes }
+      { url: "#{ENV.fetch("REDIS_URL")}/0/cache", expires_in: 90.minutes }
 
     config.action_dispatch.rack_cache = {
-      metastore: "#{ENV.fetch("REDIS_URL")}/2/metastore",
-      entitystore: "#{ENV.fetch("REDIS_URL")}/2/entitystore",
+      metastore: "#{ENV.fetch("REDIS_URL")}/0/metastore",
+      entitystore: "#{ENV.fetch("REDIS_URL")}/0/entitystore",
     }
   end
 
