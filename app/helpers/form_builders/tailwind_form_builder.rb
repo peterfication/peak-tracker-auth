@@ -1,13 +1,30 @@
 ##
-# From
+# Adapted from
 # - https://blog.testdouble.com/posts/2022-12-05-blending-tailwind-with-rails-forms/
 # - https://github.com/Daniel-N-Huss/tailwind_form_builder_example/blob/main/app/lib/form_builders/tailwind_form_builder.rb
 module FormBuilders
+  ##
+  # A form builder that uses Tailwind CSS classes
   class TailwindFormBuilder < ActionView::Helpers::FormBuilder
-    class_attribute :text_field_helpers,
-                    default: field_helpers - %i[label check_box radio_button fields_for fields hidden_field file_field]
-    #  leans on the FormBuilder class_attribute `field_helpers`
-    #  you'll want to add a method for each of the specific helpers listed here if you want to style them
+    TEXT_FIELD_HELPERS = %i[
+      color_field
+      date_field
+      datetime_field
+      datetime_local_field
+      email_field
+      month_field
+      number_field
+      password_field
+      phone_field
+      range_field
+      search_field
+      telephone_field
+      text_area
+      text_field
+      time_field
+      url_field
+      week_field
+    ].freeze
 
     TEXT_FIELD_STYLE = %w[
       w-full
@@ -53,16 +70,17 @@ module FormBuilders
       active:translate-y-1
     ].join(" ").freeze
 
-    text_field_helpers.each do |field_method|
-      class_eval <<-RUBY_EVAL, __FILE__, __LINE__ + 1
-          def #{field_method}(method, options = {})
-            if options.delete(:tailwindified)
-              super
-            else
-              text_like_field(#{field_method.inspect}, method, options)
-            end
-          end
-      RUBY_EVAL
+    ##
+    # Define all text field helpers that we want to style.
+    #
+    # This method calls the text_like_field method, which will apply the styles
+    # and call this method again to then call the parent form build class.
+    TEXT_FIELD_HELPERS.each do |field_method|
+      define_method(field_method) do |method, options = {}|
+        return super(method, options.except(:tailwindified)) if options[:tailwindified]
+
+        text_like_field(field_method, method, options)
+      end
     end
 
     def submit(value = nil, options = {})
@@ -84,15 +102,19 @@ module FormBuilders
 
     private
 
-    def text_like_field(field_method, object_method, options = {})
+    def text_like_field(field_method, object_method, options = {}) # rubocop:disable Metrics/MethodLength
       custom_opts, opts = partition_custom_opts(options)
 
       classes = apply_style_classes(TEXT_FIELD_STYLE, custom_opts, object_method)
 
-      field = send(field_method, object_method, {
-        class: classes,
-        title: errors_for(object_method)&.join(" "),
-      }.compact.merge(opts).merge({ tailwindified: true }))
+      field =
+        send(
+          field_method,
+          object_method,
+          { class: classes, title: errors_for(object_method)&.join(" ") }.compact
+            .merge(opts)
+            .merge({ tailwindified: true }),
+        )
 
       labels = labels(object_method, custom_opts[:label], options)
 
@@ -107,24 +129,24 @@ module FormBuilders
     end
 
     def tailwind_label(object_method, label_options, field_options)
-      text, label_opts = if label_options.present?
-                           [label_options[:text], label_options.except(:text)]
-                         else
-                           [nil, {}]
-                         end
+      text, label_opts =
+        (label_options.present? ? [label_options[:text], label_options.except(:text)] : [nil, {}])
 
-      label_classes = label_opts[:class] || "block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
+      label_classes =
+        label_opts[:class] || "block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
       label_classes += " text-yellow-800 dark:text-yellow-400" if field_options[:disabled]
-      label(object_method, text, {
-        class: label_classes,
-      }.merge(label_opts.except(:class)))
+      label(object_method, text, { class: label_classes }.merge(label_opts.except(:class)))
     end
 
     def error_label(object_method, options)
       return if errors_for(object_method).blank?
 
       error_message = @object.errors[object_method].collect(&:titleize).join(", ")
-      tailwind_label(object_method, { text: error_message, class: " font-bold text-red-500" }, options)
+      tailwind_label(
+        object_method,
+        { text: error_message, class: " font-bold text-red-500" },
+        options,
+      )
     end
 
     def border_color_classes(object_method)
