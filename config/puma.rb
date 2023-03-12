@@ -46,7 +46,7 @@ if ENV.fetch("RAILS_ENV", "development") == "production"
       Sidekiq.configure_embed do |config|
         # The config/sidekiq.yml won't be used here
         config.queues = %w[peak_tracker_auth_production_default]
-        config.concurrency = 2
+        config.concurrency = ENV.fetch("WEB_CONCURRENCY", 1)
       end
     sidekiq.run
   end
