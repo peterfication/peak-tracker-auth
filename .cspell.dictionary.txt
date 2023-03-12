@@ -33,6 +33,7 @@ justfile
 keyfile
 kredis
 libpq
+lograge
 metastore
 mongoid
 mswin
