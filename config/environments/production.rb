@@ -43,11 +43,6 @@ Rails.application.configure do
     config.cache_store =
       :redis_cache_store,
       { url: "#{ENV.fetch("REDIS_URL")}/0/cache", expires_in: 90.minutes }
-
-    config.action_dispatch.rack_cache = {
-      metastore: "#{ENV.fetch("REDIS_URL")}/0/metastore",
-      entitystore: "#{ENV.fetch("REDIS_URL")}/0/entitystore",
-    }
   end
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
