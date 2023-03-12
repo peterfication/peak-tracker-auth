@@ -17,6 +17,10 @@ credentials-edit:
 credentials-base64:
   cat config/credentials.yml.enc | base64 | pbcopy
 
+# Set the current credentials.yml.enc as a base64 encoded secret in Github Actions
+credentials-gh-set:
+  cat config/credentials.yml.enc | base64 | xargs gh secret set CREDENTIALS_BASE64 --body
+
 # Create and migrate the development database
 db-setup:
   bundle exec rails db:setup
