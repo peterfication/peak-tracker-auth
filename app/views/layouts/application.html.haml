@@ -9,7 +9,7 @@
     = stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload"
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
     = javascript_importmap_tags
-  %body.bg-slate-500
+  %body.bg-slate-500.bg-fixed.bg-top.bg-cover
     .w-full.p-4
       = render "layouts/navigation"
       = render "layouts/flash"

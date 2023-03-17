@@ -9,27 +9,41 @@ log "Seeding database..."
 
 log ""
 log "> Seeding Doorkeeper applications..."
-[
-  {
-    name: "Peak Tracker Web",
-    slug: "peak-tracker-web",
-    redirect_uri: "http://localhost:4000/auth/user/peak_tracker_auth/callback",
-    scopes: "openid email",
-    confidential: true,
-    uid: "local-abc-123",
-    secret: "local-secret-abc-123",
-  },
-].each do |attrs|
-  log "--> Seeding Doorkeeper application with slug #{attrs[:slug]}"
-  Doorkeeper::Application.find_or_initialize_by(slug: attrs[:slug]).update!(attrs)
-  log "--> Doorkeeper application with slug #{attrs[:slug]} seeded."
+if Doorkeeper::Application.count.zero?
+  log "> There is no Doorkeeper application yet. Seeding..."
+  [
+    {
+      name: "Peak Tracker Web",
+      slug: "peak-tracker-web",
+      redirect_uri: "http://localhost:4000/auth/user/peak_tracker_auth/callback",
+      scopes: "openid email",
+      confidential: true,
+      uid: "local-abc-123",
+      secret: "local-secret-abc-123",
+    },
+    {
+      name: "Peak Tracker App",
+      slug: "peak-tracker-app",
+      redirect_uri: "com.peak-tracker.auth://callback",
+      scopes: "openid email",
+      confidential: false,
+      uid: "local-abc-123-app",
+      secret: "local-secret-abc-123-app",
+    },
+  ].each do |attrs|
+    log "--> Seeding Doorkeeper application with slug #{attrs[:slug]}"
+    Doorkeeper::Application.find_or_initialize_by(slug: attrs[:slug]).update!(attrs)
+    log "--> Doorkeeper application with slug #{attrs[:slug]} seeded."
+  end
+  log "> Doorkeeper applications seeded."
+else
+  log "> There is at least one Doorkeeper application already. Skip seeding"
 end
-log "> Doorkeeper applications seeded."
 log ""
 
 log ""
 if User.count.zero?
-  log "> Seeding users..."
+  log "> There are no Users yet. Seeding..."
   [
     {
       email: "mail@example.com",
