@@ -2,7 +2,7 @@ if Rails.env.development?
   require "annotate"
 
   desc "Annotate models with schema info"
-  task environment: :set_annotation_options do # rubocop:disable Metrics/BlockLength
+  task environment: :set_annotation_options do
     Annotate.set_defaults(
       "active_admin" => "false",
       "additional_file_patterns" => [],
