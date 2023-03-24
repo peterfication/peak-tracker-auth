@@ -1,8 +1,35 @@
 #!/bin/bash -e
 
-# If running the rails server then create or migrate existing database
-if [ "${*}" == "./bin/rails server" ]; then
-  ./bin/rails db:prepare
-fi
+log() {
+  echo "[docker-entrypoint] [$(date)] $@"
+}
 
-exec "${@}"
+# Check if we are running as root
+if [ $UID -eq 0 ]; then
+  log "Running as root. Creating swapfile."
+
+  # Allocate swap space
+  fallocate -l 1024M /swapfile
+  chmod 0600 /swapfile
+  mkswap /swapfile
+  echo 10 > /proc/sys/vm/swappiness
+  swapon /swapfile
+  echo 1 > /proc/sys/vm/overcommit_memory
+
+  # Run the command as user "rails"
+  log "Run the same script again as user 'rails'"
+  exec su rails $0 $@
+else
+  log "Running as user 'rails'."
+
+  # If running the rails server then create or migrate existing database
+  if [ "$1" == "/rails/bin/rails" ] && [ "$2" == "server" ] ; then
+    log "Creating or migrating database."
+    /rails/bin/rails db:prepare
+  else
+    log "Not creating or migrating database."
+  fi
+
+  log "Running '${@}' as user 'rails'."
+  exec "${@}"
+fi

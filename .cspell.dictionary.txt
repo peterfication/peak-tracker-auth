@@ -17,6 +17,7 @@ encryptable
 encryptor
 entitystore
 exitstatus
+fallocate
 fcontext
 fdescribe
 fileutils
@@ -44,6 +45,7 @@ nonclustered
 omni
 omniauth
 omniauthable
+overcommit
 passthru
 passw
 pbcopy
@@ -69,6 +71,8 @@ sparkpost
 srand
 stylesheet
 superapp
+swapfile
+swapon
 tailwindcss
 tailwindified
 tempfiles

@@ -52,7 +52,10 @@ RUN apt-get update -qq && \
 
 # Run and own the application files as a non-root user for security
 RUN useradd rails --home /rails --shell /bin/bash
-USER rails:rails
+# (Disabled for the swapfile creation to work. Will switch to user "rails" in docker-entrypoint)
+# USER rails:rails
+
+WORKDIR /rails
 
 # Copy built artifacts: gems, application
 COPY --from=build /usr/local/bundle /usr/local/bundle
@@ -67,4 +70,4 @@ ENTRYPOINT ["/rails/bin/docker-entrypoint"]
 
 # Start the server by default, this can be overwritten at runtime
 EXPOSE 3000
-CMD ["./bin/rails", "server"]
+CMD ["/rails/bin/rails", "server"]
