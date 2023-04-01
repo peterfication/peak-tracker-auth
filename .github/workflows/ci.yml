@@ -81,6 +81,7 @@ jobs:
       REDIS_URL: redis://localhost:6379/0
       RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
       RAILS_ENV: test
+      CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
     steps:
       - uses: actions/checkout@v3
       - uses: ruby/setup-ruby@v1
@@ -98,3 +99,6 @@ jobs:
         run: bundle exec rspec
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v3
+        with:
+          files: .resultset.json
+          directory: coverage
