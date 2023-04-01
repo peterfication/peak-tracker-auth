@@ -34,4 +34,6 @@ jobs:
           SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
           SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
         with:
+          # ignore_empty is needed for the first release
+          ignore_empty: true
           environment: production
