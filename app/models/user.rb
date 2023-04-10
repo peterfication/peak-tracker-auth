@@ -3,7 +3,7 @@
 # Table name: users
 #
 #  id                     :uuid             not null, primary key
-#  admin                  :boolean          default(FALSE)
+#  admin                  :boolean          default(FALSE), not null
 #  confirmation_sent_at   :datetime
 #  confirmation_token     :string
 #  confirmed_at           :datetime
