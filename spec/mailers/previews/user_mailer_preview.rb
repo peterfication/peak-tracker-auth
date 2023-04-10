@@ -3,19 +3,22 @@
 #
 # Preview all UserMailer emails at http://localhost:3000/rails/mailers/user_mailer
 class UserMailerPreview < ActionMailer::Preview
+  EMAIL = "mail@example.com".freeze
+  TOKEN = "fake-token".freeze
+
   # Preview this email at http://localhost:3000/rails/mailers/user_mailer/reset_password_instructions
   def reset_password_instructions
-    UserMailer.reset_password_instructions(User.new(email: "mail@example.com"), "fake-token")
+    UserMailer.reset_password_instructions(User.new(email: EMAIL), TOKEN)
   end
 
   # Preview this email at http://localhost:3000/rails/mailers/user_mailer/confirmation_instructions
   def confirmation_instructions
-    UserMailer.confirmation_instructions(User.new(email: "mail@example.com"), "fake-token")
+    UserMailer.confirmation_instructions(User.new(email: EMAIL), TOKEN)
   end
 
   # Preview this email at http://localhost:3000/rails/mailers/user_mailer/unlock_instructions
   def unlock_instructions
-    UserMailer.unlock_instructions(User.new(email: "mail@example.com"), "fake-token")
+    UserMailer.unlock_instructions(User.new(email: EMAIL), TOKEN)
   end
 
   # Preview this email at http://localhost:3000/rails/mailers/user_mailer/email_changed
