@@ -38,6 +38,7 @@ lograge
 metastore
 mongoid
 mswin
+multicriteria
 myapp
 mypass
 myuser

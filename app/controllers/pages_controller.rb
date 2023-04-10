@@ -7,5 +7,6 @@ class PagesController < ApplicationController
   end
 
   def dashboard
+    # This method is intentionally left blank
   end
 end
