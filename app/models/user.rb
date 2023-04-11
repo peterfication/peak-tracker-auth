@@ -45,6 +45,9 @@ class User < ApplicationRecord
     :validatable,
   )
 
+  validates :sign_in_count, :failed_attempts, :encrypted_password, presence: true
+  validates :admin, inclusion: { in: [true, false] }
+
   def send_devise_notification(notification, *args)
     devise_mailer.send(notification, self, *args).deliver_later
   end
@@ -58,7 +61,7 @@ class User < ApplicationRecord
     :access_grants,
     class_name: "Doorkeeper::AccessGrant",
     foreign_key: :resource_owner_id,
-    dependent: :delete_all,
+    dependent: :destroy,
   )
 
   has_many(
