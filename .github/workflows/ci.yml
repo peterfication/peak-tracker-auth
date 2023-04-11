@@ -55,6 +55,37 @@ jobs:
       - name: Run Prettier
         run: bundle exec rbprettier --check '**/*.{rb,yml,json,js,md,graphql,haml}'
 
+  db-doctor:
+    needs: [before]
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres
+        env:
+          POSTGRES_PASSWORD: postgres
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 5432:5432
+    env:
+      POSTGRES_DB: peak-tracker-auth_test
+      POSTGRES_PASSWORD: postgres
+      DATABASE_URL: postgres://postgres:postgres@localhost:5432/peak-tracker-auth_test
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+      - name: Set up the test database
+        run: |
+          bundle exec rails db:create
+          bundle exec rails db:schema:load
+      - name: Run ActiveRecord Doctor
+        run: bundle exec rake active_record_doctor
+
   test:
     needs: [before]
     runs-on: ubuntu-latest

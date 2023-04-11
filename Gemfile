@@ -68,6 +68,7 @@ group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 
+  gem "active_record_doctor"
   gem "annotate"
   gem "dockerfile-rails", ">= 1.2", require: false
   gem "foreman", require: false

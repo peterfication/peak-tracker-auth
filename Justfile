@@ -7,7 +7,7 @@ console:
   bundle exec rails console
 
 # Run all steps from CI
-ci: spellcheck format lint test
+ci: spellcheck format lint db-doctor test
 
 # Edit the Rails credentials
 credentials-edit:
@@ -28,6 +28,10 @@ db-setup:
 # Reset the development database
 db-reset:
   bundle exec rails db:reset
+
+# Run ActiveRecord Doctor
+db-doctor:
+  bundle exec rake active_record_doctor
 
 # Format the files with Prettier
 format:
