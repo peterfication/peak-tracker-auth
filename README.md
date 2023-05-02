@@ -10,6 +10,9 @@
   <a href="https://sonarcloud.io/summary/new_code?id=peterfication_peak-tracker-auth">
     <img alt="Maintainability Rating" src="https://sonarcloud.io/api/project_badges/measure?project=peterfication_peak-tracker-auth&metric=sqale_rating" \>
   </a>
+  <a href="https://codeclimate.com/github/peterfication/peak-tracker-auth/maintainability">
+    <img src="https://api.codeclimate.com/v1/badges/9bbbb69ec0e5f8789e82/maintainability" />
+  </a>
 </p>
 
 Identity provider for [Peak Tracker](https://github.com/peterfication/peak_tracker_backend)
