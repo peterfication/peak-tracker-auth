@@ -50,6 +50,7 @@ overcommit
 passthru
 passw
 pbcopy
+peercert
 peterfication
 pgcrypto
 pidfile
