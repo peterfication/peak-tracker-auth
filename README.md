@@ -41,3 +41,22 @@ bundle exec rails db:setup
 # Start the server
 just start
 ```
+
+## Troubleshooting
+
+### Installing `puma` fails
+
+```
+...
+compiling http11_parser.c
+compiling mini_ssl.c
+compiling puma_http11.c
+linking shared-object puma/puma_http11.bundle
+Undefined symbols for architecture arm64:
+  "_SSL_get1_peer_certificate", referenced from:
+      _engine_peercert in mini_ssl.o
+ld: symbol(s) not found for architecture arm64
+...
+```
+
+See this [PR comment](https://github.com/puma/puma/issues/2790#issuecomment-1547332463)
