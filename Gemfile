@@ -56,6 +56,7 @@ group :development, :test do
   gem "pry-byebug"
   gem "pry-rails"
   gem "rspec-rails", "~> 6.0.3"
+  gem "strong_migrations"
 end
 
 group :development do
