@@ -48,8 +48,8 @@ class User < ApplicationRecord
   validates :sign_in_count, :failed_attempts, :encrypted_password, presence: true
   validates :admin, inclusion: { in: [true, false] }
 
-  def send_devise_notification(notification, *args)
-    devise_mailer.send(notification, self, *args).deliver_later
+  def send_devise_notification(notification, *)
+    devise_mailer.send(notification, self, *).deliver_later
   end
 
   # Set up attributes so Devise trackable does not complain
