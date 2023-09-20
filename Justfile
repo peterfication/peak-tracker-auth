@@ -48,6 +48,21 @@ lint-haml:
 lint-rubocop:
   bundle exec rubocop
 
+message-bus-publish:
+  find app config lib -type f -name "*.rb" -exec grep -Hn "MessageBus.publish" {} \;
+
+message-bus-publish-event-names-only:
+  find app config lib -type f -name "*.rb" -exec grep -oP '(?<=MessageBus\.publish ")[^"]*|(?<=MessageBus\.publish\(")[^"]*' {} \;
+
+message-bus-subscribe:
+  find app config lib -type f -name "*.rb" -exec grep -Hn "MessageBus.subscribe" {} \;
+
+message-bus-subscribe-event-names-only:
+  find app config lib -type f -name "*.rb" -exec grep -oP '(?<=MessageBus\.subscribe ")[^"]*|(?<=MessageBus\.subscribe\(")[^"]*' {} \;
+
+message-bus-check:
+  scripts/message_bus_check.sh
+
 # Run the spellcheck
 spellcheck:
   yarn spellcheck
