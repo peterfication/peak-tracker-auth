@@ -14,6 +14,7 @@ gem "redis", "< 5" # > 5 is needed for redis-actionpack and redis-activesupport
 gem "redis-actionpack"
 gem "redis-activesupport"
 gem "sidekiq"
+gem "strong_migrations"
 
 gem "haml-rails", "~> 2.0" # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "importmap-rails" # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
@@ -57,7 +58,6 @@ group :development, :test do
   gem "pry-byebug"
   gem "pry-rails"
   gem "rspec-rails", "~> 6.0.3"
-  gem "strong_migrations"
 end
 
 group :development do
