@@ -86,6 +86,14 @@ jobs:
       - name: Run ActiveRecord Doctor
         run: bundle exec rake active_record_doctor
 
+  message-bus-check:
+    needs: [before]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Check message bus setup
+        run: scripts/message_bus_check.sh
+
   test:
     needs: [before]
     runs-on: ubuntu-latest
