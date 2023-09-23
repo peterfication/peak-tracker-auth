@@ -32,6 +32,8 @@
 ##
 # A user is a person who can log in to the application.
 class User < ApplicationRecord
+  include Wisper::Publisher
+
   devise(
     :confirmable,
     :database_authenticatable,
@@ -50,6 +52,7 @@ class User < ApplicationRecord
 
   after_commit on: :create do
     MessageBus.publish "/models/user/created", { id: }
+    broadcast(:models_user_created, self)
   end
 
   def send_devise_notification(notification, *)

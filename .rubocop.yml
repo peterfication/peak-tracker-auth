@@ -30,6 +30,7 @@ Metrics/MethodLength:
 RSpec/DescribeClass:
   Exclude:
     - spec/message_bus/**/*
+    - spec/wisper/**/*
 RSpec/ExampleLength:
   Max: 10
 RSpec/MultipleExpectations:
