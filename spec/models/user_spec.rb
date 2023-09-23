@@ -14,8 +14,8 @@ RSpec.describe User do
               @messages = []
             end
 
-            def models_user_created(user)
-              @messages << user
+            def models_user_created(user_id)
+              @messages << user_id
             end
           end,
         )
@@ -39,7 +39,7 @@ RSpec.describe User do
           user = create(:user)
 
           wait_for(-> { test_listener.messages.any? })
-          expect(test_listener.messages).to eq([user])
+          expect(test_listener.messages).to eq([user.id])
         end
       end
     end

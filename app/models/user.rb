@@ -52,7 +52,7 @@ class User < ApplicationRecord
 
   after_commit on: :create do
     MessageBus.publish "/models/user/created", { id: }
-    broadcast(:models_user_created, self)
+    broadcast(:models_user_created, id)
   end
 
   def send_devise_notification(notification, *)

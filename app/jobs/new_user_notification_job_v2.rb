@@ -3,8 +3,10 @@
 class NewUserNotificationJobV2 < ApplicationJob
   queue_as :default
 
-  def self.models_user_created(user)
-    NewUserNotificationJobV2.perform_later({ "id" => user.id })
+  ##
+  # Listener method for wisper which is called in config/initializers/wisper.rb
+  def self.models_user_created(user_id)
+    NewUserNotificationJobV2.perform_later({ "id" => user_id })
   end
 
   def perform(*args)
