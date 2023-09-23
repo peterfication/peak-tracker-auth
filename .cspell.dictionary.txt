@@ -81,4 +81,5 @@ tempfiles
 timeoutable
 unconfigured
 validatable
+wisper
 zoneinfo
