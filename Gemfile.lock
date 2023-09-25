@@ -397,7 +397,7 @@ GEM
       sprockets (>= 3.0.0)
     stimulus-rails (1.2.2)
       railties (>= 6.0.0)
-    strong_migrations (1.6.2)
+    strong_migrations (1.6.3)
       activerecord (>= 5.2)
     syntax_tree (6.1.1)
       prettier_print (>= 1.2.0)
