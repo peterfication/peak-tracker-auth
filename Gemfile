@@ -9,7 +9,7 @@ gem "rails", "~> 7.0.8"
 gem "lograge"
 gem "message_bus"
 gem "pg", "~> 1.5"
-gem "puma", "~> 6.3"
+gem "puma", "~> 6.4"
 gem "redis", "< 5" # > 5 is needed for redis-actionpack and redis-activesupport
 gem "redis-actionpack"
 gem "redis-activesupport"
