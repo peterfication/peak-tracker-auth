@@ -7,10 +7,17 @@
   "license": "UNLICENSED",
   "private": true,
   "scripts": {
-    "spellcheck": "cspell **",
-    "spellcheck:list": "cspell ** --words-only --unique --no-progress"
+    "spellcheck": "cspell '**'",
+    "spellcheck:list": "cspell '**' --words-only --unique --no-progress"
   },
   "devDependencies": {
-    "cspell": "^6.28.0"
+    "cspell": "^7.3.7"
+  },
+  "packageManager": "yarn@3.6.4",
+  "volta": {
+    "node": "18.18.0"
+  },
+  "engines": {
+    "node": "18.18.0"
   }
 }
