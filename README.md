@@ -30,7 +30,7 @@ Peak Tracker Auth expects a PostgreSQL database and a Redis server to be accessi
 ```console
 # Make sure you have the required Ruby version installed
 ruby -v
--> ruby 3.2.1 ...
+-> ruby 3.2.2 ...
 
 # Install the dependencies
 bundle
