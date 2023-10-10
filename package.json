@@ -12,5 +12,6 @@
   },
   "devDependencies": {
     "cspell": "^6.28.0"
-  }
+  },
+  "packageManager": "yarn@3.6.4"
 }
