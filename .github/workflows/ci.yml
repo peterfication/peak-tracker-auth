@@ -94,6 +94,17 @@ jobs:
       - name: Check message bus setup
         run: scripts/message_bus_check.sh
 
+  eager-load:
+    needs: [before]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+      - name: "Try to eager load the app to check for errors"
+        run: bundle exec rails zeitwerk:check DATABASE_URL=postgres://user:password@invalid:5432/not-needed
+
   test:
     needs: [before]
     runs-on: ubuntu-latest
