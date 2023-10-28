@@ -7,7 +7,7 @@ console:
   bundle exec rails console
 
 # Run all steps from CI
-ci: spellcheck format lint db-doctor test
+ci: spellcheck format lint db-doctor eager-load test
 
 # Edit the Rails credentials
 credentials-edit:
@@ -32,6 +32,10 @@ db-reset:
 # Run ActiveRecord Doctor
 db-doctor:
   bundle exec rake active_record_doctor
+
+# Try to eager load the app to check for errors
+eager-load:
+  bundle exec rails zeitwerk:check DATABASE_URL=postgres://user:pass@invalid:5432/not-needed
 
 # Format the files with Prettier
 format:
