@@ -131,7 +131,7 @@ GEM
     docile (1.4.0)
     dockerfile-rails (1.5.12)
       rails (>= 3.0.0)
-    doorkeeper (5.6.6)
+    doorkeeper (5.6.7)
       railties (>= 5)
     doorkeeper-openid_connect (1.8.7)
       doorkeeper (>= 5.5, < 5.7)
@@ -178,7 +178,7 @@ GEM
       activesupport (>= 6.0.0)
       railties (>= 6.0.0)
     io-console (0.6.0)
-    irb (1.9.0)
+    irb (1.9.1)
       rdoc
       reline (>= 0.3.8)
     jaro_winkler (1.5.4)
