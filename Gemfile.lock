@@ -237,7 +237,7 @@ GEM
       ast (~> 2.4.1)
       racc
     pg (1.5.4)
-    prettier (4.0.2)
+    prettier (4.0.3)
       syntax_tree (>= 4.0.1)
       syntax_tree-haml (>= 2.0.0)
       syntax_tree-rbs (>= 0.2.0)
@@ -429,7 +429,7 @@ GEM
     stringio (3.0.9)
     strong_migrations (1.6.4)
       activerecord (>= 5.2)
-    syntax_tree (6.1.1)
+    syntax_tree (6.2.0)
       prettier_print (>= 1.2.0)
     syntax_tree-haml (4.0.3)
       haml (>= 5.2)
