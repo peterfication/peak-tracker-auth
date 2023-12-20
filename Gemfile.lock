@@ -152,7 +152,7 @@ GEM
     foreman (0.87.2)
     globalid (1.2.1)
       activesupport (>= 6.1)
-    haml (6.3.0)
+    haml (6.2.3)
       temple (>= 0.8.2)
       thor
       tilt
@@ -500,6 +500,7 @@ DEPENDENCIES
   factory_bot_rails
   faker
   foreman
+  haml (= 6.2.3)
   haml-rails (~> 2.0)
   haml_lint
   html2haml
