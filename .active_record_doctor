@@ -1,3 +1,0 @@
-# This file just requires .active_record_doctor.rb so that we have
-# a proper file ending and that the file is checked in CI.
-require_relative "./.active_record_doctor"
