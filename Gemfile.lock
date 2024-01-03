@@ -59,7 +59,7 @@ GEM
       erubi (~> 1.11)
       rails-dom-testing (~> 2.2)
       rails-html-sanitizer (~> 1.6)
-    active_record_doctor (1.12.0)
+    active_record_doctor (1.14.0)
       activerecord (>= 4.2.0)
     activejob (7.1.2)
       activesupport (= 7.1.2)
