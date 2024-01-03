@@ -17,7 +17,7 @@ gem "sidekiq"
 gem "strong_migrations"
 gem "wisper"
 
-gem "haml", "6.2.3"
+gem "haml", "6.3.0"
 gem "haml-rails", "~> 2.0" # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "importmap-rails" # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "jbuilder"
