@@ -10,12 +10,14 @@ gem "lograge"
 gem "message_bus"
 gem "pg", "~> 1.5"
 gem "puma", "~> 6.4"
+gem "strong_migrations"
+gem "wisper"
+
+gem "mock_redis", require: false # This project is still in alpha mode, so it's ok to not need a proper Redis instance
 gem "redis", "< 5" # > 5 is needed for redis-actionpack and redis-activesupport
 gem "redis-actionpack"
 gem "redis-activesupport"
 gem "sidekiq"
-gem "strong_migrations"
-gem "wisper"
 
 gem "haml", "6.3.0"
 gem "haml-rails", "~> 2.0" # Build JSON APIs with ease [https://github.com/rails/jbuilder]
