@@ -213,6 +213,7 @@ GEM
     method_source (1.0.0)
     mini_mime (1.1.5)
     minitest (5.21.2)
+    mock_redis (0.44.0)
     msgpack (1.7.2)
     mutex_m (0.2.0)
     net-imap (0.4.9.1)
@@ -509,6 +510,7 @@ DEPENDENCIES
   jbuilder
   lograge
   message_bus
+  mock_redis
   pg (~> 1.5)
   prettier
   pry-byebug

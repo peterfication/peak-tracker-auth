@@ -42,7 +42,14 @@ Rails.application.configure do
   if ENV.fetch("REDIS_URL", nil).present?
     config.cache_store =
       :redis_cache_store,
-      { url: "#{ENV.fetch("REDIS_URL")}/0/cache", expires_in: 90.minutes }
+      { url: "#{ENV.fetch("REDIS_URL")}/1/cache", expires_in: 90.minutes }
+  else
+    # Use mock_redis if there is no Redis server available
+    require "mock_redis"
+
+    config.cache_store =
+      :redis_cache_store,
+      { url: "redis://localhost:6379/1/cache", expires_in: 90.minutes }
   end
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
