@@ -9,7 +9,7 @@ if ENV.fetch("REDIS_URL", nil).present?
     secure: Rails.env.production?,
   )
 else
-  require "mock_redis"
+  require "fakeredis"
 
   PeakTrackerAuth::Application.config.session_store(
     :redis_store,
