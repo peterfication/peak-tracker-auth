@@ -9,6 +9,7 @@
     }
   ],
   "ignorePaths": [
+    "app/assets/builds/",
     "config/credentials.yml.enc",
     "config/credentials/*",
     "coverage",
