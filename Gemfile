@@ -8,7 +8,7 @@ gem "rails", "~> 7.1.2"
 
 gem "lograge"
 gem "message_bus"
-gem "pg", "~> 1.5"
+gem "pg", "~> 1.6"
 gem "puma", "~> 6.4"
 gem "strong_migrations"
 gem "wisper"
